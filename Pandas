@@ -1,0 +1,50 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read CSV file
+df = pd.read_csv("student.csv")
+
+# Display first five records
+print("First five records:")
+print(df.head())
+
+# Display dataset information
+print("\nDataset Information:")
+print(df.info())
+
+# Calculate average, maximum and minimum marks
+print("\nAverage Marks:", df["Marks"].mean())
+print("Maximum Marks:", df["Marks"].max())
+print("Minimum Marks:", df["Marks"].min())
+
+# Students scoring more than 75 marks
+print("\nStudents scoring more than 75 marks:")
+print(df[df["Marks"] > 75])
+
+# Bar chart of student marks
+plt.figure(figsize=(8, 5))
+plt.bar(df["Name"], df["Marks"], color="skyblue")
+plt.xlabel("Student Name")
+plt.ylabel("Marks")
+plt.title("Student Performance Analysis")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Histogram of marks
+plt.figure(figsize=(8, 5))
+plt.hist(df["Marks"], bins=5, color="orange", edgecolor="black")
+plt.xlabel("Marks")
+plt.ylabel("Number of Students")
+plt.title("Distribution of Student Marks")
+plt.tight_layout()
+plt.show()
+
+# Scatter plot: study hours vs marks
+plt.figure(figsize=(8, 5))
+plt.scatter(df["StudyHours"], df["Marks"], color="green")
+plt.xlabel("Study Hours")
+plt.ylabel("Marks")
+plt.title("Study Hours vs Marks")
+plt.tight_layout()
+plt.show()
