@@ -1,0 +1,10 @@
+import json
+
+# Read JSON file
+with open("products.json", "r") as file:
+    products = json.load(file)
+
+# Calculate total value of each product
+for item in products:
+    total = item["Quantity"] * item["Price"]
+    print(f'{item["Product"]}: {total}')
